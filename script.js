@@ -1,6 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('contactForm');
     const successMessage = document.getElementById('successMessage');
+    
+    // Configuration constants
+    const FORM_RESET_DELAY_MS = 3000;
 
     // Form validation patterns
     const validators = {
@@ -94,12 +97,12 @@ document.addEventListener('DOMContentLoaded', function() {
             // Log form data (in a real application, this would be sent to a server)
             console.log('Form submitted successfully:', formData);
 
-            // Reset form after 3 seconds
+            // Reset form after configured delay
             setTimeout(() => {
                 form.reset();
                 form.style.display = 'block';
                 successMessage.style.display = 'none';
-            }, 3000);
+            }, FORM_RESET_DELAY_MS);
         } else {
             // Scroll to first error
             const firstError = form.querySelector('.error-message:not(:empty)');
