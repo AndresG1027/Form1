@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>NEXUS | Dashboard 2025</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="app-layout">
+        
+        <nav class="smart-nav">
+            <div class="nav-logo">
+                <div class="dot"></div>
+            </div>
+            <div class="nav-links">
+                <button class="nav-item active" data-target="dashboard-view"><i class='bx bx-grid-alt'></i></button>
+                <button class="nav-item" data-target="analytics-view"><i class='bx bx-table'></i></button>
+                <button class="nav-item" data-target="profile-view"><i class='bx bx-user'></i></button>
+                <button class="nav-item" data-target="settings-view"><i class='bx bx-cog'></i></button>
+            </div>
+        </nav>
+
+        <main class="content-area">
+            
+            <section id="dashboard-view" class="view-section active">
+                <header class="header-mobile">
+                    <div class="titles">
+                        <h1>Resumen General</h1>
+                        <p>Datos en tiempo real • Nov 2025</p>
+                    </div>
+                    <div class="kpi-block">
+                        <span class="label">Ingresos Totales</span>
+                        <div class="number" id="totalSales">Bs 0</div>
+                    </div>
+                </header>
+
+                <div class="scroll-tabs">
+                    <button class="chip active" data-filter="all">Vista Global</button>
+                    <button class="chip" data-filter="systems">Sistemas</button>
+                    <button class="chip" data-filter="devices">Dispositivos</button>
+                    <button class="chip" data-filter="acc">Accesorios</button>
+                </div>
+
+                <div class="grid-stack">
+                    <div class="card">
+                        <div class="card-top">
+                            <h3>Región</h3>
+                            <i class='bx bx-map-alt'></i>
+                        </div>
+                        <div class="chart-wrapper">
+                            <canvas id="regionChart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-top">
+                            <h3>Mix de Productos</h3>
+                            <i class='bx bx-pie-chart-alt-2'></i>
+                        </div>
+                        <div class="chart-wrapper">
+                            <canvas id="productChart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="card tall-card">
+                        <div class="card-top">
+                            <h3>Top Vendedores</h3>
+                            <i class='bx bx-trophy'></i>
+                        </div>
+                        <div class="chart-wrapper tall-wrapper">
+                            <canvas id="sellerChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="analytics-view" class="view-section">
+                <header class="header-mobile">
+                    <div class="titles"><h1>Base de Datos</h1><p>Detalle de transacciones</p></div>
+                </header>
+                <div class="card table-card">
+                    <table class="data-table">
+                        <thead>
+                            <tr><th>Vendedor</th><th>Estado</th><th>Ventas</th><th>Meta</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Cristina</td><td><span class="status up">▲ Alta</span></td><td>Bs 50.590</td><td>100%</td></tr>
+                            <tr><td>Jhoselin</td><td><span class="status up">▲ Alta</span></td><td>Bs 48.510</td><td>95%</td></tr>
+                            <tr><td>Matias</td><td><span class="status mid">● Media</span></td><td>Bs 41.915</td><td>82%</td></tr>
+                            <tr><td>Stefany</td><td><span class="status mid">● Media</span></td><td>Bs 38.373</td><td>76%</td></tr>
+                            <tr><td>Rivaldo</td><td><span class="status down">▼ Baja</span></td><td>Bs 29.358</td><td>58%</td></tr>
+                            <tr><td>Luz</td><td><span class="status down">▼ Baja</span></td><td>Bs 13.602</td><td>25%</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="profile-view" class="view-section">
+                <header class="header-mobile">
+                    <div class="titles"><h1>Mi Perfil</h1><p>Administrador</p></div>
+                </header>
+                <div class="card profile-card">
+                    <div class="avatar-circle">AD</div>
+                    <h3>Admin User</h3>
+                    <p>admin@nexus.bo</p>
+                    <button class="chip active" style="margin-top: 15px;">Editar Perfil</button>
+                </div>
+            </section>
+
+            <section id="settings-view" class="view-section">
+                <header class="header-mobile">
+                    <div class="titles"><h1>Configuración</h1><p>Preferencias del sistema</p></div>
+                </header>
+                <div class="card">
+                    <div class="setting-item">
+                        <span>Modo Oscuro</span>
+                        <div class="toggle active"></div>
+                    </div>
+                    <div class="setting-item">
+                        <span>Notificaciones</span>
+                        <div class="toggle active"></div>
+                    </div>
+                    <div class="setting-item">
+                        <span>Exportar Reportes Automáticos</span>
+                        <div class="toggle"></div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="spacer"></div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
